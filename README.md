@@ -9,14 +9,14 @@ This repository contains Helm charts for various applications. It uses GitHub Ac
 Once Helm has been set up, add the repo as follows:
 
 ```bash
-helm repo add my-charts https://<your-github-username>.github.io/<your-repo-name>/
+helm repo add Yub0 https://yub0.github.io/charts/
 helm repo update
 ```
 
 To install the prowlarr chart:
 
 ```bash
-helm install my-prowlarr my-charts/prowlarr
+helm install my-prowlarr Yub0/prowlarr
 ```
 
 ## Contributing

@@ -10,7 +10,7 @@ A Helm chart for Prowlarr
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| my-charts | <maintainer@example.com> | |
+| Yub0 | <maintainer@example.com> | |
 
 ## Values
 
