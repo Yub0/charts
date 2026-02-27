@@ -34,3 +34,13 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: true
           CR_PAGES_BRANCH: main
+          CR_INDEX_PATH: index.yaml
+          CR_PAGES_INDEX_PATH: index.yaml
+
+      - name: Commit and push index.yaml if changed
+        run: |
+          if [[ -f "index.yaml" ]]; then
+            git add index.yaml
+            git diff --cached --quiet || git commit -m "chore: update helm repository index"
+            git push origin main
+          fi
