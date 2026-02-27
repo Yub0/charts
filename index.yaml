@@ -31,4 +31,19 @@ entries:
     urls:
     - https://github.com/Yub0/charts/releases/download/prowlarr-0.1.1/prowlarr-0.1.1.tgz
     version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.29.2
+    created: "2026-02-27T09:28:01.000Z"
+    description: A Helm chart for Prowlarr
+    digest: d78093fe0af1b2eb3b8f8c5badd060cd6888b3a15db9281f9ff3663806872f11
+    home: https://prowlarr.com/
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/128.png
+    maintainers:
+    - email: maintainer@example.com
+      name: Yub0
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/Yub0/charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
+    version: 0.1.0
 generated: "2026-02-27T09:50:16.502857106Z"
