@@ -36,30 +36,3 @@ jobs:
           CR_PAGES_BRANCH: main
           CR_INDEX_PATH: index.yaml
           CR_PAGES_INDEX_PATH: index.yaml
-
-      - name: Ensure index.yaml exists and merge with existing
-        run: |
-          # If index.yaml doesn't exist, create an empty one
-          if [[ ! -f "index.yaml" ]]; then
-            echo "apiVersion: v1
-entries: {}
-generated: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > index.yaml
-          fi
-          
-          # Download existing index from GitHub Pages if it exists
-          if curl -s -f -o existing-index.yaml https://yub0.github.io/charts/index.yaml; then
-            echo "Found existing index, merging..."
-            # Use helm repo index with --merge to combine indices
-            helm repo index . --url https://github.com/Yub0/charts/releases/download --merge existing-index.yaml
-          else
-            echo "No existing index found, creating new one"
-            helm repo index . --url https://github.com/Yub0/charts/releases/download
-          fi
-
-      - name: Commit and push index.yaml if changed
-        run: |
-          if [[ -f "index.yaml" ]]; then
-            git add index.yaml
-            git diff --cached --quiet || git commit -m "chore: update helm repository index"
-            git push origin main
-          fi

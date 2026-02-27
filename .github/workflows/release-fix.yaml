@@ -1,0 +1,51 @@
+name: Fix Helm Repository Index
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0' # Run weekly on Sunday
+
+jobs:
+  fix-index:
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+
+      - name: Get all releases
+        id: get-releases
+        run: |
+          # Get all chart releases and download their packages
+          releases=$(gh api repos/Yub0/charts/releases | jq -r '.[] | select(.name | startswith("prowlarr-")) | .name')
+          echo "Found releases: $releases"
+          
+          # Download all chart packages
+          for release in $releases; do
+            echo "Downloading $release..."
+            gh release download $release --pattern "*.tgz" --dir .
+          done
+          
+          # Generate index with all versions
+          helm repo index . --url https://github.com/Yub0/charts/releases/download --merge index.yaml
+
+      - name: Commit and push index.yaml if changed
+        run: |
+          if [[ -f "index.yaml" ]]; then
+            git add index.yaml
+            git diff --cached --quiet || git commit -m "chore: update helm repository index with all versions"
+            git push origin main
+          fi
