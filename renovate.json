@@ -5,6 +5,7 @@
     ":prHourlyLimitNone",
     ":prConcurrentLimitNone"
   ],
+  "dependencyDashboardApproval": false,
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
