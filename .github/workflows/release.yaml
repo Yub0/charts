@@ -43,9 +43,9 @@ jobs:
           curl -sSLo gomplate https://github.com/hairyhenderson/gomplate/releases/latest/download/gomplate_linux-amd64
           chmod +x gomplate
           
-          # Fetch updated index.yaml from gh-pages branch
+          # Fetch updated index.yaml from gh-pages branch without switching
           git fetch origin gh-pages
-          git checkout gh-pages index.yaml
+          git show origin/gh-pages:index.yaml > index.yaml || echo "apiVersion: v1" > index.yaml
           
           # Prepare data for template
           cat <<EOF > repo-data.yaml
@@ -54,14 +54,17 @@ jobs:
             url: "https://yub0.github.io/charts/"
           EOF
           
-          # Render template using gomplate
+          # Render template (which is currently in main)
           ./gomplate -d index=index.yaml -d repo=repo-data.yaml -f index.html.gotmpl -o index.html
           
-          # Clean up temporary data
-          rm repo-data.yaml gomplate
+          # Store the rendered file and template temporarily
+          mv index.html /tmp/index.html
           
           # Switch to gh-pages to commit and push
           git checkout gh-pages
+          mv /tmp/index.html index.html
+          
+          # Commit and push
           git add index.html
           git diff --staged --quiet || git commit -m "docs: auto-generate repository landing page with Go template"
           git push origin gh-pages
