@@ -14,6 +14,6 @@ entries:
     name: prowlarr
     type: application
     urls:
-    - https://yub0.github.io/charts/prowlarr-0.1.0.tgz
+    - https://github.com/Yub0/charts/releases/download/prowlarr-0.1.0/prowlarr-0.1.0.tgz
     version: 0.1.0
 generated: "2026-02-27T10:33:17.946405+01:00"
