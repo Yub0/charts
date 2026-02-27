@@ -27,7 +27,7 @@
     
     <section class="setup">
         <h3>🚀 Quick Setup</h3>
-        <pre><code>helm repo add {{ .repository.name | lower }} {{ .repository.url }}
+        <pre><code>helm repo add {{ .repository.name | strings.ToLower }} {{ .repository.url }}
 helm repo update</code></pre>
     </section>
 
@@ -42,7 +42,7 @@ helm repo update</code></pre>
                 <span class="version">v{{ $latest.version }}</span>
             </div>
             <p style="margin:0.5rem 0">{{ default "No description available." $latest.description }}</p>
-            <code>helm install my-{{ $name }} {{ $.repository.name | lower }}/{{ $name }}</code>
+            <code>helm install my-{{ $name }} {{ $.repository.name | strings.ToLower }}/{{ $name }}</code>
         </div>
         {{ end }}
     </section>
