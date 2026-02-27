@@ -33,7 +33,7 @@ helm repo update</code></pre>
 
     <section>
         <h3>📋 Available Charts</h3>
-        {{ range $name, $versions := .entries }}
+        {{ range $name, $versions := (ds "index").entries }}
         {{ $latest := index $versions 0 }}
         <div class="chart-card">
             <div class="chart-header">

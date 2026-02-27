@@ -47,8 +47,8 @@ jobs:
           git fetch origin gh-pages
           git show origin/gh-pages:index.yaml > index.yaml || echo "apiVersion: v1" > index.yaml
           
-          # Render template using gomplate (input data is index.yaml)
-          ./gomplate -f index.html.gotmpl -d datasource=index.yaml --datasource-header "datasource=Content-Type: application/x-yaml" -o index.html
+          # Render template using gomplate (explicitly mapping the index datasource)
+          ./gomplate -d index=index.yaml -f index.html.gotmpl -o index.html
           
           # Store the rendered file temporarily
           mv index.html /tmp/index.html
