@@ -2,7 +2,7 @@ apiVersion: v2
 name: prowlarr
 description: A Helm chart for Prowlarr
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.29.2"
 home: https://prowlarr.com/
 icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/128.png
