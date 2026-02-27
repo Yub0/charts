@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .repository.name }} Helm Charts</title>
+    <title>Yub0 Helm Charts</title>
     <style>
         :root { --primary: #24292e; --accent: #0366d6; --bg: #f6f8fa; }
         body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; line-height: 1.5; color: var(--primary); max-width: 900px; margin: 0 auto; padding: 2rem; background: #fff; }
@@ -22,18 +22,18 @@
 </head>
 <body>
     <header>
-        <h1>📦 {{ .repository.name }} Helm Charts</h1>
+        <h1>📦 Yub0 Helm Charts Repository</h1>
     </header>
     
     <section class="setup">
         <h3>🚀 Quick Setup</h3>
-        <pre><code>helm repo add {{ .repository.name | strings.ToLower }} {{ .repository.url }}
+        <pre><code>helm repo add yub0 https://yub0.github.io/charts/
 helm repo update</code></pre>
     </section>
 
     <section>
         <h3>📋 Available Charts</h3>
-        {{ range $name, $versions := .index.entries }}
+        {{ range $name, $versions := .entries }}
         {{ $latest := index $versions 0 }}
         <div class="chart-card">
             <div class="chart-header">
@@ -42,7 +42,7 @@ helm repo update</code></pre>
                 <span class="version">v{{ $latest.version }}</span>
             </div>
             <p style="margin:0.5rem 0">{{ default "No description available." $latest.description }}</p>
-            <code>helm install my-{{ $name }} {{ $.repository.name | strings.ToLower }}/{{ $name }}</code>
+            <code>helm install my-{{ $name }} yub0/{{ $name }}</code>
         </div>
         {{ end }}
     </section>
