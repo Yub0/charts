@@ -1,5 +1,7 @@
 name: Release Charts
 
+concurrency: release-helm
+
 on:
   push:
     branches:
@@ -33,6 +35,4 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           CR_SKIP_EXISTING: true
-          CR_PAGES_BRANCH: main
-          CR_INDEX_PATH: index.yaml
-          CR_PAGES_INDEX_PATH: index.yaml
+          CR_PAGES_BRANCH: gh-pages
