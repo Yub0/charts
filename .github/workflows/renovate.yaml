@@ -3,7 +3,7 @@ name: Renovate
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Every day at midnight
+    - cron: '0 */12 * * *' # Every 12 hours
 
 jobs:
   renovate:
