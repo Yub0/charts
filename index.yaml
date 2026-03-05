@@ -16,4 +16,20 @@ entries:
     urls:
     - https://github.com/Yub0/charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-02-27T17:02:37.052773394Z"
+  sonarr:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-03-05T17:25:35.653492444Z"
+    description: A Helm chart for Sonarr
+    digest: 2f2841908964df36fef63864be8f7b8f1e55d1436cde7b2c1a6e66ea5e2bf432
+    home: https://sonarr.tv/
+    icon: https://raw.githubusercontent.com/Sonarr/Sonarr/develop/Logo/128.png
+    maintainers:
+    - email: me@yubo.dev
+      name: Yub0
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/Yub0/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
+    version: 1.0.0
+generated: "2026-03-05T17:25:35.653499888Z"
