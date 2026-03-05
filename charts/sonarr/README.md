@@ -4,7 +4,7 @@
 
 A Helm chart for Sonarr
 
-**Homepage:** <https://sonarr.com/>
+**Homepage:** <https://sonarr.tv/>
 
 ## Maintainers
 
