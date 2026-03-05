@@ -24,6 +24,11 @@ A Helm chart for Sonarr
 | env.PGID | int | `1000` |  |
 | env.PUID | int | `1000` |  |
 | env.TZ | string | `"Etc/UTC"` |  |
+| exportarr.additionalArgs | list | `[]` |  |
+| exportarr.image.pullPolicy | string | `"IfNotPresent"` |  |
+| exportarr.image.repository | string | `"ghcr.io/onedr0p/exportarr"` |  |
+| exportarr.image.tag | string | `"v2.0.1"` |  |
+| exportarr.port | int | `8990` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"lscr.io/linuxserver/sonarr"` |  |
@@ -36,6 +41,7 @@ A Helm chart for Sonarr
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
+| metrics.enabled | bool | `false` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
@@ -47,7 +53,7 @@ A Helm chart for Sonarr
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `9696` |  |
+| service.port | int | `8989` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
