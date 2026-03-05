@@ -10,7 +10,7 @@ A Helm chart for Sonarr
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| Yub0 | <maintainer@example.com> |  |
+| Yub0 | <me@yubo.dev> |  |
 
 ## Values
 
