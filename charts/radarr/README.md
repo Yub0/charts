@@ -1,10 +1,10 @@
-# sonarr
+# radarr
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
-A Helm chart for Sonarr
+A Helm chart for Radarr
 
-**Homepage:** <https://sonarr.tv/>
+**Homepage:** <https://radarr.video/>
 
 ## Maintainers
 
@@ -28,10 +28,10 @@ A Helm chart for Sonarr
 | exportarr.image.pullPolicy | string | `"IfNotPresent"` |  |
 | exportarr.image.repository | string | `"ghcr.io/onedr0p/exportarr"` |  |
 | exportarr.image.tag | string | `"v2.0.1"` |  |
-| exportarr.port | int | `8990` |  |
+| exportarr.port | int | `7879` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"lscr.io/linuxserver/sonarr"` |  |
+| image.repository | string | `"lscr.io/linuxserver/radarr"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
@@ -53,7 +53,7 @@ A Helm chart for Sonarr
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
 | securityContext | object | `{}` |  |
-| service.port | int | `8989` |  |
+| service.port | int | `7878` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
