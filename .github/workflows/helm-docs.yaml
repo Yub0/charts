@@ -16,12 +16,13 @@ on:
 
 jobs:
   helm-docs:
-    runs-on: self-hosted
+    runs-on: ${{ github.event_name == 'pull_request' && 'ubuntu-latest' || 'self-hosted' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Run helm-docs
         uses: losisin/helm-docs-github-action@v1
