@@ -1,10 +1,10 @@
-# prowlarr
+# sonarr
 
 ![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
-A Helm chart for Prowlarr
+A Helm chart for Sonarr
 
-**Homepage:** <https://prowlarr.com/>
+**Homepage:** <https://sonarr.tv/>
 
 ## Maintainers
 
@@ -26,7 +26,7 @@ A Helm chart for Prowlarr
 | env.TZ | string | `"Etc/UTC"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"lscr.io/linuxserver/prowlarr"` |  |
+| image.repository | string | `"lscr.io/linuxserver/sonarr"` |  |
 | image.tag | string | `""` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
