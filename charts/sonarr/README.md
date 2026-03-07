@@ -27,7 +27,7 @@ A Helm chart for Sonarr
 | exportarr.additionalArgs | list | `[]` |  |
 | exportarr.image.pullPolicy | string | `"IfNotPresent"` |  |
 | exportarr.image.repository | string | `"ghcr.io/onedr0p/exportarr"` |  |
-| exportarr.image.tag | string | `"v2.0.1"` |  |
+| exportarr.image.tag | string | `"v2.3.0@sha256:af535d94061cf97a52e1661945ffba78c03f9443eae7c0da1a80a5a4be56b520"` |  |
 | exportarr.port | int | `8990` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
