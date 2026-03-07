@@ -120,7 +120,7 @@ exportarr:
   image:
     repository: ghcr.io/onedr0p/exportarr
     pullPolicy: IfNotPresent
-    tag: v2.0.1
+    tag: v2.3.0@sha256:af535d94061cf97a52e1661945ffba78c03f9443eae7c0da1a80a5a4be56b520
   port: 8990
   additionalArgs: []
   # - enable_additional_metrics
