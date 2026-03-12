@@ -125,3 +125,10 @@ exportarr:
   additionalArgs: []
   # - enable_additional_metrics
   # - enable_unknown_queue_items
+  securityContext: {}
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
