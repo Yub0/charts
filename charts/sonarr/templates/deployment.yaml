@@ -65,6 +65,8 @@ spec:
               mountPath: /config
         {{- if .Values.metrics.enabled }}
         - name: exportarr
+          securityContext:
+            {{- toYaml .Values.exportarr.securityContext | nindent 12 }}
           image: "{{ .Values.exportarr.image.repository }}:{{ .Values.exportarr.image.tag }}"
           imagePullPolicy: {{ .Values.exportarr.image.pullPolicy }}
           args:
