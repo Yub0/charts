@@ -26,5 +26,5 @@ jobs:
       - name: Run helm-docs
         uses: losisin/helm-docs-github-action@v1
         with:
-          git-push: true
+          git-push: ${{ github.event_name == 'push' }}
           git-commit-message: "docs: update helm docs"
