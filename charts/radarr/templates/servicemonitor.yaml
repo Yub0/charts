@@ -5,7 +5,7 @@ metadata:
   name: {{ include "radarr.fullname" . }}
   labels:
     {{- include "radarr.labels" . | nindent 4 }}
-    {{- if .Values.metrics.serviceMonitor.labels }}
+    {{- if and .Values.metrics.serviceMonitor (default false .Values.metrics.serviceMonitor.labels) }}
     {{- toYaml .Values.metrics.serviceMonitor.labels | nindent 4 }}
     {{- end }}
 spec:
@@ -15,10 +15,10 @@ spec:
   endpoints:
     - port: metrics
       path: /metrics
-      {{- if .Values.metrics.serviceMonitor.interval }}
+      {{- if and .Values.metrics.serviceMonitor (default false .Values.metrics.serviceMonitor.interval) }}
       interval: {{ .Values.metrics.serviceMonitor.interval }}
       {{- end }}
-      {{- if .Values.metrics.serviceMonitor.scrapeTimeout }}
+      {{- if and .Values.metrics.serviceMonitor (default false .Values.metrics.serviceMonitor.scrapeTimeout) }}
       scrapeTimeout: {{ .Values.metrics.serviceMonitor.scrapeTimeout }}
       {{- end }}
 {{- end }}

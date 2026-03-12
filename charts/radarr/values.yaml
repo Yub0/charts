@@ -108,13 +108,13 @@ env:
 metrics:
   # Enable both the metrics endpoint and the exportarr sidecar
   enabled: false
-  # prometheusRule:
-  #   enabled: false
-  #   rules: []
-  # serviceMonitor:
-  #   interval: 1m
-  #   scrapeTimeout: 10s
-  #   labels: {}
+  prometheusRule:
+    enabled: false
+    rules: []
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 10s
+    labels: {}
 
 exportarr:
   image:
