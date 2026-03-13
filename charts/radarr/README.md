@@ -4,7 +4,7 @@
 
 A Helm chart for Radarr
 
-**Homepage:** <https://radarr.tv/>
+**Homepage:** <https://radarr.video/>
 
 ## Maintainers
 
