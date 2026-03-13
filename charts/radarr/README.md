@@ -1,6 +1,6 @@
 # radarr
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 A Helm chart for Radarr
 
@@ -43,6 +43,11 @@ A Helm chart for Radarr
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
 | metrics.enabled | bool | `false` |  |
+| metrics.prometheusRule.enabled | bool | `false` |  |
+| metrics.prometheusRule.rules | list | `[]` |  |
+| metrics.serviceMonitor.interval | string | `"1m"` |  |
+| metrics.serviceMonitor.labels | object | `{}` |  |
+| metrics.serviceMonitor.scrapeTimeout | string | `"10s"` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
