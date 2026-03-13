@@ -1,0 +1,66 @@
+name: Release Charts
+
+concurrency: release-helm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.6.0
+        with:
+          charts_dir: charts
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          CR_SKIP_EXISTING: true
+          CR_PAGES_BRANCH: gh-pages
+
+      - name: Generate Repository Landing Page
+        run: |
+          # Install gomplate
+          curl -sSLo gomplate https://github.com/hairyhenderson/gomplate/releases/latest/download/gomplate_linux-amd64
+          chmod +x gomplate
+
+          # Fetch updated index.yaml from gh-pages branch without switching
+          git fetch origin gh-pages
+          git show origin/gh-pages:index.yaml > index.yaml || echo "apiVersion: v1" > index.yaml
+
+          # Render template using gomplate (explicitly mapping the index datasource)
+          ./gomplate -d index=index.yaml -f index.html.gotmpl -o index.html
+
+          # Store the rendered file temporarily
+          mv index.html /tmp/index.html
+
+          # Switch to gh-pages to commit and push
+          git checkout gh-pages
+          mv /tmp/index.html index.html
+
+          # Commit and push
+          git add index.html
+          git diff --staged --quiet || git commit -m "docs: auto-generate repository landing page with Go template"
+          git push origin gh-pages
+
+          # Return to main
+          git checkout main

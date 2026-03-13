@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":prHourlyLimitNone",
+    ":prConcurrentLimitNone"
+  ],
+  "dependencyDashboardApproval": false,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "helm-values": {
+    "fileMatch": ["charts/.*/values.yaml$"]
+  }
+}

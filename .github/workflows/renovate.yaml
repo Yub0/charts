@@ -1,0 +1,28 @@
+name: Renovate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */12 * * *' # Every 12 hours
+
+jobs:
+  renovate:
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v41.0.12
+        with:
+          configurationFile: renovate.json
+          token: ${{ secrets.RENOVATE_TOKEN || secrets.GITHUB_TOKEN }}
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          LOG_LEVEL: debug
