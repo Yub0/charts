@@ -16,6 +16,22 @@ entries:
     urls:
     - https://github.com/Yub0/charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
     version: 1.0.0
+  radarr:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-03-13T08:35:09.052685967Z"
+    description: A Helm chart for Radarr
+    digest: 9cdd43922321ce0f59414fecdf683a9f321d9eb5aa392901307e40e4359f72b3
+    home: https://radarr.video/
+    icon: https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/128.png
+    maintainers:
+    - email: me@yubo.dev
+      name: Yub0
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/Yub0/charts/releases/download/radarr-1.0.0/radarr-1.0.0.tgz
+    version: 1.0.0
   sonarr:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -47,4 +63,4 @@ entries:
     urls:
     - https://github.com/Yub0/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2026-03-12T18:18:42.881830378Z"
+generated: "2026-03-13T08:35:09.052695875Z"
